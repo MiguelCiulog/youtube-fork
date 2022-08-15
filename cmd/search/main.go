@@ -4,7 +4,8 @@ import (
 	// "flag"
 	"fmt"
 	// "github.com/lithdew/nicehttp"
-	"github.com/lithdew/youtube"
+	// "github.com/lithdew/youtube"
+	"github.com/MiguelCiulog/youtube-fork"
 	"log"
 	// "path"
 	// "regexp"
@@ -13,15 +14,20 @@ import (
 
 func check(err error) {
 	if err != nil {
-		log.Fatal(err)
+		// log.Fatal(err)
+		// log.Fatal(err)
+		log.Panic(err)
 	}
 }
 
 func main() {
-	// Search for the song Animus Vox by The Glitch Mob.
+	// Search for the song dont stop beliving
 
-	results, err := youtube.Search("animus vox", 0)
+	// results, err := youtube.Search("dont stop belivin", 0)
+	results, err := youtube.Search("pogo bbno$", 0)
 	check(err)
+	// fmt.Println(results.)
+	fmt.Println("ptm: ", results.Items[0].ID)
 
 	fmt.Printf("Got %d search result(s).\n\n", results.Hits)
 
@@ -55,6 +61,8 @@ func main() {
 	if !ok {
 		check(fmt.Errorf("no audio-only stream available"))
 	}
+
+	fmt.Println(stream)
 
 	// audioOnlyFilename := "audio." + stream.FileExtension()
 

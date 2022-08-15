@@ -1,4 +1,5 @@
-module github.com/UFeindschiff/youtube
+// module github.com/UFeindschiff/youtube
+module github.com/MiguelCiulog/youtube-fork
 
 go 1.14
 

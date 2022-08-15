@@ -116,12 +116,31 @@ func (c *Client) SearchTimeout(query string, page uint, timeout time.Duration) (
 	return c.SearchDeadline(query, page, time.Now().Add(timeout))
 }
 
+func splitSearchString(data string) ([]byte, error) {
+	ytInitData := strings.Split(data, "var ytInitialData =")
+
+	if len(ytInitData) > 1 {
+		dataYt := strings.Split(ytInitData[1], "</script>")
+		x := strings.Join(dataYt[0:1], "")
+		data_parse := strings.Split(x, "= ")
+		data_parsed := strings.Split(data_parse[0], ";")
+
+		// ytInitData = strings.Split(ytInitData[1], "videoId")
+		// dataYt = dataYt[0:2]
+		// dataYt = dataYt[1:]
+
+		return []byte(data_parsed[0]), nil
+		// return []byte(ytInitData[1]), nil
+	}
+
+	return nil, nil
+}
+
 func (c *Client) SearchDeadline(query string, page uint, deadline time.Time) (SearchResult, error) {
 	var result SearchResult
 
-	uri := []byte("https://www.youtube.com/search_ajax?style=json")
-	fmt.Println("AKJDLAKSJDLKAJDLKJASLKDJLKJ")
-	// uri := []byte("https://www.youtube.com/results?style=json&q=animus%20vox&page=0&hl=en")
+	// uri := []byte("https://www.youtube.com/search_ajax?style=json")
+	uri := []byte("https://www.youtube.com/results?q=")
 
 	uri = append(uri, "&search_query="...)
 	uri = append(uri, url.PathEscape(query)...)
@@ -132,12 +151,18 @@ func (c *Client) SearchDeadline(query string, page uint, deadline time.Time) (Se
 	uri = append(uri, "&hl="...)
 	uri = append(uri, "en"...)
 
+	fmt.Println(string(uri))
+
 	buf, err := c.DownloadBytesDeadline(nil, bytesutil.String(uri), deadline)
 	if err != nil {
 		return result, fmt.Errorf("failed to search for page %d of query %q: %w", page, query, err)
 	}
+	data, err := splitSearchString(string(buf))
 
-	val, err := fastjson.ParseBytes(buf)
+	// fmt.Println("\n", string(data))
+	// fmt.Printf("\nbruh\n")
+
+	val, err := fastjson.ParseBytes(data)
 	if err != nil {
 		return result, fmt.Errorf("got malformed json searching for page %d of query %q: %w", page, query, err)
 	}
