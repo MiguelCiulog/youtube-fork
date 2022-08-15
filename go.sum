@@ -5,15 +5,12 @@ github.com/klauspost/compress v1.10.4 h1:jFzIFaf586tquEB5EhzQG0HwGNSlgAJpG53G6Ss
 github.com/klauspost/compress v1.10.4/go.mod h1:aoV0uJVorq1K+umq18yTdKaF57EivdYsUV+/s2qKfXs=
 github.com/lithdew/bytesutil v0.0.0-20200409052507-d98389230a59 h1:CQpoOQecHxhvgOU/ijue/yWuShZYDtNpI9bsD4Dkzrk=
 github.com/lithdew/bytesutil v0.0.0-20200409052507-d98389230a59/go.mod h1:89JlULMIJ/+YWzAp5aHXgAD2d02S2mY+a+PMgXDtoNs=
-github.com/lithdew/nicehttp v0.0.0-20200422033439-042310f8dd3f h1:na81vOEjOyMrOlWroT85/NARDTAwgVzJMZjD6Cvnwfc=
-github.com/lithdew/nicehttp v0.0.0-20200422033439-042310f8dd3f/go.mod h1:Mo+cHgR+hYunqlEUQtLblT9l6F1PX54Zcr/AGQsy1u4=
-github.com/lithdew/nicehttp v0.0.0-20200422090400-f9af5b9dc169 h1:MN1mJbOi7tt/L2Asxhghmr++fiXeq2rKJv3PItTm+fg=
-github.com/lithdew/nicehttp v0.0.0-20200422090400-f9af5b9dc169/go.mod h1:Mo+cHgR+hYunqlEUQtLblT9l6F1PX54Zcr/AGQsy1u4=
 github.com/lithdew/nicehttp v0.0.0-20200422123956-0d3d3dd9b482 h1:zh+0lJQ0nF+5Fv1+qVCn7YAukzCvpnWLF4mXCtUPTLo=
 github.com/lithdew/nicehttp v0.0.0-20200422123956-0d3d3dd9b482/go.mod h1:Mo+cHgR+hYunqlEUQtLblT9l6F1PX54Zcr/AGQsy1u4=
+github.com/lithdew/youtube v0.0.0-20200524132213-a1fd5d688f8a h1:iArvv5kE4agZCrD3gS3IanGdQIkcgDLgOzEte+NXJ0c=
+github.com/lithdew/youtube v0.0.0-20200524132213-a1fd5d688f8a/go.mod h1:qeGQwbNuh0V2gpOl5ca/nEBs80m1Zhs8ukOJXchSFqQ=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/stretchr/objx v0.1.0 h1:4G4v2dO3VZwixGIRoQ5Lfboy6nUhCyYzaqnIAPPhYs4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.5.1 h1:nOGnQDM7FYENwehXlg/kFVnos3rEvtKTjRvOWSzb6H4=
 github.com/stretchr/testify v1.5.1/go.mod h1:5W2xD1RspED5o8YsWQXVCued0rvSQ+mT+I5cxcmMvtA=

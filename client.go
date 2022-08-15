@@ -8,10 +8,10 @@ import (
 	"github.com/valyala/fasthttp"
 	"github.com/valyala/fastjson"
 	"golang.org/x/sync/errgroup"
-	"net/url"
-	"time"
 	"log"
+	"net/url"
 	"strings"
+	"time"
 )
 
 var zeroTime time.Time
@@ -120,6 +120,8 @@ func (c *Client) SearchDeadline(query string, page uint, deadline time.Time) (Se
 	var result SearchResult
 
 	uri := []byte("https://www.youtube.com/search_ajax?style=json")
+	fmt.Println("AKJDLAKSJDLKAJDLKJASLKDJLKJ")
+	// uri := []byte("https://www.youtube.com/results?style=json&q=animus%20vox&page=0&hl=en")
 
 	uri = append(uri, "&search_query="...)
 	uri = append(uri, url.PathEscape(query)...)
@@ -171,7 +173,7 @@ func (c *Client) LoadWatchPlayerDeadline(id StreamID, deadline time.Time) (Playe
 	}
 	//log.Println(string(matches[1]))
 	splitstring := strings.Split(string(matches[1]), ";</script>")
-// 	log.Println(splitstring[0])
+	// 	log.Println(splitstring[0])
 	val, err := fastjson.ParseBytes([]byte(splitstring[0]))
 	if err != nil {
 		return player, fmt.Errorf("failed to parse video player config: %w", err)
@@ -181,10 +183,10 @@ func (c *Client) LoadWatchPlayerDeadline(id StreamID, deadline time.Time) (Playe
 
 	// Extract streaming info.
 
-// 	val, err = fastjson.ParseBytes(val.GetStringBytes("args", "player_response"))
-// 	if err != nil {
-// 		return player, fmt.Errorf("failed to parse json response: %w", err)
-// 	}
+	// 	val, err = fastjson.ParseBytes(val.GetStringBytes("args", "player_response"))
+	// 	if err != nil {
+	// 		return player, fmt.Errorf("failed to parse json response: %w", err)
+	// 	}
 
 	player.Streams = Streams{v: val}
 
@@ -211,12 +213,12 @@ func (c *Client) LoadEmbedPlayerAssetsDeadline(id StreamID, deadline time.Time) 
 		return assets, fmt.Errorf("failed to download html of embed player: %w", err)
 	}
 	log.Println("UFeindschiff library version used")
-// 	log.Println("DEBUG:" + string(buf))
+	// 	log.Println("DEBUG:" + string(buf))
 	matches := RegexEmbedPlayerConfig.FindSubmatch(buf)
 	if matches == nil {
 		return assets, errors.New("could not find embed player config in html page")
 	}
-// 	log.Println(string(matches[1]))
+	// 	log.Println(string(matches[1]))
 	splitstring := strings.Split(string(matches[1]), ");yt.setConfig(")
 	val, err := fastjson.ParseBytes([]byte(splitstring[0]))
 	if err != nil {
